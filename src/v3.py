@@ -1,6 +1,10 @@
 from tkinter import *
-def v3(id):
-    v3 = Tk()
-    v3.title('Requerimiento: '+str(id))
-    v3.geometry('500x200')
-    v3.mainloop()
+
+
+def v3(req):
+    window_req = Tk()
+    print(req)
+    req_title = 'Requerimiento: {0}'.format(req[0])
+    window_req.title(req_title)
+    window_req.minsize(300, 200)
+    window_req.mainloop()
