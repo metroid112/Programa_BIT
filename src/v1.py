@@ -4,13 +4,14 @@ import sqlite3
 from tkinter.tix import Tk
 from v3 import *
 
+conexion = sqlite3.connect("bes.db")
+
 
 def v1():
     window_reqs = Tk()
     window_reqs.title('Requerimientos activos')
-    window_reqs.minsize(300,200)
+    window_reqs.minsize(300, 200)
 
-    conexion = sqlite3.connect("bes.db")
     cursor = conexion.cursor()
     requerimientos = cursor.execute("Select * from REQ001").fetchall()
     cursor.close()
