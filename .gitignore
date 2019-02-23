@@ -108,3 +108,9 @@ venv.bak/
 .idea/modules.xml
 .idea/misc.xml
 .idea/encodings.xml
+src/.idea/workspace.xml
+src/.idea/src.iml
+src/.idea/modules.xml
+src/.idea/misc.xml
+src/.idea/encodings.xml
+src/.idea/vcs.xml
