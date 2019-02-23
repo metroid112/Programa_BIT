@@ -24,4 +24,7 @@ def v1():
         nombre_req = '{0} - {1}'.format(requerimiento[0], requerimiento[1])
         lista_req.insert(END, nombre_req)
 
-    Button(window_reqs, text='Seleccionar requerimiento', command=(lambda: v3(lista_req.curselection()))).pack()
+    print(requerimientos)
+    Button(window_reqs, text='Seleccionar requerimiento', command=(lambda: v3(
+        requerimientos[lista_req.curselection()[0]]
+    ))).pack()
