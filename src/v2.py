@@ -2,6 +2,7 @@
 
 from tkinter import *
 import sqlite3
+import json
 
 conexion = sqlite3.connect("bes.db")
 
@@ -12,13 +13,10 @@ editable = "normal"
 def v2():
     v2 = Tk()
     v2.title('Nuevo requerimiento')
-
-   # v2.geometry('500x200')
     v2.resizable(1,1)
     v2.configure(bg = 'beige')
-    #frame = Frame(v2)
-    #frame.pack()
-   # frame.config(cursor = "Pirate", width=100, height = 100, bg = "black")
+
+
 
     nombre = Label(v2, text="Ingrese título")
     nombre.configure( fg="black", )
@@ -46,14 +44,29 @@ def v2():
     v2.mainloop()
 
 def guardar(titulo, descripcion):
+    identidad = 1
     cursor.execute("SELECT id FROM REQ001 ORDER BY ID DESC")
     idsiguiente = cursor.fetchone()
-    print(idsiguiente[0])
-    idsiguiente = idsiguiente[0] + 1
-    cursor.execute("Insert into REQ001 (id, titulo) values({}, '{}')".format(idsiguiente, titulo ))
-    f = open("{}.txt".format(idsiguiente), "w")
+    if idsiguiente is not None:
+        identidad = idsiguiente[0] + 1
+
+    print(identidad)
+    cursor.execute("Insert into REQ001 (id, titulo, numentr) values({}, '{}', 1)".format(identidad, titulo ))
+    f = open("{}.txt".format(identidad), "w")
     f.write(descripcion)
     f.close()
+
+
+    data = {}
+    data['entrada'] = []
+    data['entrada'].append({
+        'texto' : '{}'.format(descripcion),
+        'autor'  : 'Fernando'
+    })
+    with open("{}.json".format(identidad), 'w') as outfile:
+        json.dump(data, outfile)
+
+
     #titulo = t1get
     print(titulo)
     print(descripcion)
