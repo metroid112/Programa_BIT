@@ -12,7 +12,6 @@ def v1():
     window_reqs.title('Requerimientos activos')
     window_reqs.minsize(300, 200)
 
-    # hola
     cursor = conexion.cursor()
     requerimientos = cursor.execute("Select * from REQ001").fetchall()
     cursor.close()
