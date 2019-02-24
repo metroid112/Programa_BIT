@@ -3,6 +3,8 @@ from v1 import *
 from v2 import *
 from v4 import *
 
+conexion = sqlite3.connect("bes.db")
+
 
 class Aplicacion:
     def __init__(self):
@@ -16,7 +18,7 @@ class Aplicacion:
         top.pack(side=TOP, fill=BOTH)
 
         middle = Frame(window_main)
-        middle.pack(fill=BOTH)
+        middle.pack(expand=TRUE)
 
         bottom = Frame(window_main)
         bottom.pack(side=BOTTOM, fill=BOTH)
@@ -31,11 +33,11 @@ class Aplicacion:
 
         b1 = Button(window_main, text="Requerimientos activos",
                     command=(lambda: v1()))
-        b1.pack()
+        b1.pack(in_=middle)
 
         b2 = Button(window_main, text="Ingresar nuevo requerimiento",
                     command=(lambda: v2()))
-        b2.pack()
+        b2.pack(in_=middle)
 
         b4 = Button(window_main, text='Salir', command=window_main.destroy)
         b4.pack(in_=bottom, side=RIGHT)
@@ -44,7 +46,10 @@ class Aplicacion:
 
 
 def contar_notificaciones():
-    return 1
+    cursor_notif = conexion.cursor()
+    requerimientos = cursor_notif.execute("Select * from REQ001").fetchall()
+    cursor_notif.close()
+    return len(requerimientos)
 
 
 def main():
