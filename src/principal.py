@@ -29,7 +29,7 @@ class Aplicacion:
         # BOTON NOTIFICACION #
         boton_notificaciones = Button(ventana_principal,
                                       text='Notificaciones',
-                                      command=(lambda: numero_notificaciones()))
+                                      command=(lambda: notificaciones()))
         boton_notificaciones.pack(in_=tope,
                                   side=LEFT)
 
