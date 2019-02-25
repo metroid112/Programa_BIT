@@ -1,13 +1,12 @@
 # Lista requerimientos activos, es llamada por v0
 
-import sqlite3
 from tkinter.tix import Tk
-from v3 import *
+from ventanas.requerimiento import *
 
 conexion = sqlite3.connect("bes.db")
 
 
-def v1():
+def requerimientos_activos():
     window_reqs = Tk()
     window_reqs.title('Requerimientos activos')
     window_reqs.minsize(300, 200)
@@ -26,6 +25,6 @@ def v1():
         lista_req.insert(END, nombre_req)
 
     print(requerimientos)
-    Button(window_reqs, text='Seleccionar requerimiento', command=(lambda: v3(
+    Button(window_reqs, text='Seleccionar requerimiento', command=(lambda: requerimientos(
         requerimientos[lista_req.curselection()[0]]
     ))).pack()

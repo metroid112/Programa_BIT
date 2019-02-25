@@ -5,7 +5,7 @@ import json
 conexion = sqlite3.connect("bes.db")
 cursor = conexion.cursor()
 global veces
-def v3(id):
+def requerimientos(id):
         id = id[0]
 
         v3 =  Tk()

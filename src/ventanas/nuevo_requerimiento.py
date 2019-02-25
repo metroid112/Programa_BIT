@@ -10,7 +10,7 @@ cursor = conexion.cursor()
 #cursor.execute("CREATE TABLE REQ001(ID  NUMERIC(5) , TITULO CHAR(80), DESCRIP VARCHAR(1000))")
 
 editable = "normal"
-def v2():
+def requerimientos():
     v2 = Tk()
     v2.title('Nuevo requerimiento')
     v2.resizable(1,1)
