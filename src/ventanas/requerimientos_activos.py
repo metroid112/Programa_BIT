@@ -7,15 +7,15 @@ conexion = sqlite3.connect("bes.db")
 
 
 def requerimientos_activos():
-    window_reqs = Tk()
-    window_reqs.title('Requerimientos activos')
-    window_reqs.minsize(300, 200)
+    ventana_requerimientos = Tk()
+    ventana_requerimientos.title('Requerimientos activos')
+    ventana_requerimientos.minsize(300, 200)
 
     cursor_temp = conexion.cursor()
     query_requerimientos = cursor_temp.execute("Select * from REQUERIMIENTOS").fetchall()
     cursor_temp.close()
 
-    lista_requerimientos = Listbox(window_reqs,
+    lista_requerimientos = Listbox(ventana_requerimientos,
                                    selectmode=SINGLE)
     lista_requerimientos.pack()
 
@@ -23,6 +23,6 @@ def requerimientos_activos():
         nombre_req = '{0} - {1}'.format(requerimiento[0], requerimiento[1])
         lista_requerimientos.insert(END, nombre_req)
 
-    Button(window_reqs,
+    Button(ventana_requerimientos,
            text='Seleccionar requerimiento',
            command=(lambda: requerimiento(query_requerimientos[lista_requerimientos.curselection()[0]]))).pack()
