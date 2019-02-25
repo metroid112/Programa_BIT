@@ -29,14 +29,14 @@ class Aplicacion:
         # BOTON NOTIFICACION #
         boton_notificaciones = Button(ventana_principal,
                                       text='Notificaciones',
-                                      command=(lambda: notificaciones()))
+                                      command=(lambda: numero_notificaciones()))
         boton_notificaciones.pack(in_=tope,
                                   side=LEFT)
 
         # CONTADOR NOTIFICACION #
-        notificaciones = contar_notificaciones()
+        numero_notificaciones = contar_notificaciones()
         contador_notificaciones = Label(ventana_principal,
-                                        text='({0})'.format(notificaciones))
+                                        text='({0})'.format(numero_notificaciones))
         contador_notificaciones.pack(in_=tope, side=LEFT)
 
         # CONTADOR REQ ACTIVOS #
@@ -63,10 +63,10 @@ class Aplicacion:
 
 
 def contar_notificaciones():
-    cursor_notif = conexion.cursor()
-    requerimientos = cursor_notif.execute("Select * from REQUERIMIENTOS").fetchall()
-    cursor_notif.close()
-    return len(requerimientos)
+    cursor_temp = conexion.cursor()
+    query_notificaciones = cursor_temp.execute("Select * from NOTIFICACIONES").fetchall()
+    cursor_temp.close()
+    return len(query_notificaciones)
 
 
 def main():
