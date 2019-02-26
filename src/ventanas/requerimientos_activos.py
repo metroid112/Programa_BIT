@@ -26,4 +26,4 @@ def requerimientos_activos():
 
     Button(ventana_requerimientos,
            text='Seleccionar requerimiento',
-           command=(lambda: row_requerimiento(query_requerimientos[lista_requerimientos.curselection()[0]]))).pack()
+           command=(lambda: requerimiento(query_requerimientos[lista_requerimientos.curselection()[0]]))).pack()
