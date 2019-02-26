@@ -45,13 +45,13 @@ def requerimientos():
 
 def guardar(titulo, descripcion):
     identidad = 1
-    cursor.execute("SELECT id FROM REQ001 ORDER BY ID DESC")
+    cursor.execute("SELECT id FROM REQUERIMIENTOS ORDER BY ID DESC")
     idsiguiente = cursor.fetchone()
     if idsiguiente is not None:
         identidad = idsiguiente[0] + 1
 
     print(identidad)
-    cursor.execute("Insert into REQ001 (id, titulo, numentr) values({}, '{}', 1)".format(identidad, titulo ))
+    cursor.execute("Insert into REQUERIMIENTOS (id, titulo, estado) values({}, '{}', 1)".format(identidad, titulo ))
     f = open("{}.txt".format(identidad), "w")
     f.write(descripcion)
     f.close()
