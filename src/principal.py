@@ -2,6 +2,7 @@
 from ventanas.requerimientos_activos import *
 from ventanas.nuevo_requerimiento import *
 from ventanas.notificaciones import *
+from ventanas.busqueda import *
 
 conexion = sqlite3.connect("bes.db")
 
@@ -38,6 +39,19 @@ class Aplicacion:
         contador_notificaciones = Label(ventana_principal,
                                         text='({0})'.format(numero_notificaciones))
         contador_notificaciones.pack(in_=tope, side=LEFT)
+
+
+        # BUSCADOR REQ ACTIVOS #
+        busqueda_requerimientos = StringVar()
+        buscador_requerimientos = Entry(ventana_principal,
+                                        textvariable=busqueda_requerimientos)
+
+        boton_buscador = Button(ventana_principal,
+                                text='Buscar',
+                                command=(lambda: busqueda(busqueda_requerimientos.get())))
+
+        boton_buscador.pack(in_=tope, side=RIGHT)
+        buscador_requerimientos.pack(in_=tope, side=RIGHT)
 
         # CONTADOR REQ ACTIVOS #
         boton_requerimientos_activos = Button(ventana_principal,
