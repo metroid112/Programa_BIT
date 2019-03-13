@@ -11,7 +11,7 @@ class Aplicacion:
     def __init__(self):
         ventana_principal = Tk()
 
-        ventana_principal.title('BES 0.1')
+        ventana_principal.title('BES 0.2')
         ventana_principal.config(bg="black")
         ventana_principal.minsize(300, 200)
 
