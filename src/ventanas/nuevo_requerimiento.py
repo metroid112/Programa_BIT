@@ -61,7 +61,8 @@ def guardar(titulo, descripcion):
     data['entrada'] = []
     data['entrada'].append({
         'texto' : '{}'.format(descripcion),
-        'autor'  : 'Fernando'
+        'autor'  : 'Fernando',
+        'cliente' : 'SI'
     })
     with open("{}.json".format(identidad), 'w') as outfile:
         json.dump(data, outfile)
